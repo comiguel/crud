@@ -54,10 +54,10 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'localhost',
-			'database'  => 'crud_db',
-			'username'  => 'root',
-			'password'  => '',
+			'host'      => '74.220.207.163',
+			'database'  => 'elecsisc_prueba2',
+			'username'  => 'elecsisc_prueba2',
+			'password'  => 'prueba2',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

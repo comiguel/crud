@@ -45,7 +45,7 @@
 						<th>Id</th>
 						<th>Nombre</th>
 						<th>Apellidos</th>
-						<th>Cédula</th>
+						<th>Usuario</th>
 						<th>Acciones</th>
 					</tr>
 				</thead>
@@ -55,7 +55,7 @@
 							<td>{{ $user->id }}</td>
 							<td>{{ $user->name }}</td>
 							<td>{{ $user->lastname }}</td>
-							<td>{{ $user->cc }}</td>
+							<td>{{ $user->username }}</td>
 							<td>
 								<a href="/users/show/{{ $user->id }}"><span class="label label-info">Ver</span></a>
 								<a href="/users/edit/{{ $user->id }}"><span class="label label-success">Editar</span></a>

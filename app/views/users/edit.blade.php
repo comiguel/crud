@@ -27,6 +27,7 @@
       			<ul class="nav navbar-nav">
         			<li><a href="/users">Todos</a></li>
         			<li><a href="/users/create">Nuevo</a></li>
+              <li><a href="/logout">Cerrar Sesión</a></li>
         		</ul>
         	</div>
         </div>
@@ -47,7 +48,7 @@
             <input value="{{ $user->lastname }}" type="text" name="lastname" placeholder="Apellidos" class="form-control" required>
           </p>
           <p>
-            <input value="{{ $user->cc }}" type="text" name="cc" placeholder="Cédula" class="form-control" required>
+            <input value="{{ $user->username }}" type="text" name="username" placeholder="Cédula" class="form-control" required>
           </p>
           <div class="controls">
             <input type="password" name="password" placeholder="Password" class="form-control" required>

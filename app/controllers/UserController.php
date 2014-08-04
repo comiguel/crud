@@ -1,7 +1,11 @@
 <?php
 
-class UserController extends \BaseController {
+class UserController extends BaseController {
 
+	// public function __construct()
+ //    {
+ //        $this->beforeFilter('auth');
+ //    }
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -37,8 +41,8 @@ class UserController extends \BaseController {
 
 		$user->name = Input::get('name');
 		$user->lastname = Input::get('lastname');
-		$user->cc = Input::get('cc');
-		$user->pass = Input::get('password');
+		$user->username = Input::get('username');
+		$user->pass = Hash::make(Input::get('password'));
 
 		if($user->save()){
 			Session::flash('message','Se ha guardado el usuario correctamente');
@@ -48,7 +52,7 @@ class UserController extends \BaseController {
 			Session::flash('class','danger');
 		}
 
-		return Redirect::to('users/create');
+		return Redirect::to('login');
 
 	}
 
@@ -93,8 +97,8 @@ class UserController extends \BaseController {
 
 		$user->name = Input::get('name');
 		$user->lastname = Input::get('lastname');
-		$user->cc = Input::get('cc');
-		$user->pass = Input::get('password');
+		$user->username = Input::get('username');
+		$user->pass = Hash::make(Input::get('password'));
 
 		if($user->save()){
 			Session::flash('message','Se ha actualizado el usuario correctamente');
@@ -128,43 +132,4 @@ class UserController extends \BaseController {
 
 		return Redirect::to('users');
 	}
-
-	public function showLogin()
-    {
-        // Verificamos que el usuario esté autenticado
-        if (Auth::check())
-        {
-            // Si está autenticado lo mandamos a la raíz donde estara el mensaje de bienvenida.
-            return Redirect::to('/');
-        }
-        // Mostramos la vista login.blade.php (Recordemos que .blade.php se omite.)
-        return View::make('login');
-    }
-
-	public function postLogin()
-	{
-        // Guardamos en un arreglo los datos del usuario.
-        $user = array(
-            'cc' => Input::get('cc'),
-            'pass'=> Input::get('pass')
-        );
-        // Validamos los datos y además mandamos como un segundo parámetro la opción de recordar el usuario.
-        if(Auth::attempt($user))
-        {
-            // De ser datos válidos nos mandara a la bienvenida
-            return Redirect::to('/');
-        }
-        // En caso de que la autenticación haya fallado manda un mensaje al formulario de login y también regresamos los valores enviados con withInput().
-        Session::flash('message','Tus datos son incorrectos');
-		Session::flash('class','danger');
-        return Redirect::to('login');
-    }
-
-	public function logOut()
-    {
-        Auth::logout();
-        Session::flash('message','Se ha cerrado sesión correctamente');
-		Session::flash('class','success');
-        return Redirect::to('login');
-    }
 }

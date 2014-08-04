@@ -27,6 +27,7 @@
       			<ul class="nav navbar-nav">
         			<li><a href="/users">Todos</a></li>
         			<li><a href="/users/create">Nuevo</a></li>
+              <li><a href="/logout">Cerrar Sesión</a></li>
         		</ul>
         	</div>
         </div>
@@ -46,7 +47,7 @@
           Apellidos: <strong>{{ $user->lastname }}</strong>
         </p>
         <p>
-  				Cédula: <strong>{{ $user->cc }}</strong>
+  				Usuario: <strong>{{ $user->username }}</strong>
   			</p>
         @else
         <p>

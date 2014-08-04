@@ -12,11 +12,12 @@ class CrearUsuarios extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('usuarios',function($tabla){
+		Schema::create('users',function($tabla){
 			$tabla->increments('id');
-			$tabla->string('nombres',50);
-			$tabla->string('apellidos',70);
-			$tabla->string('cc',12);
+			$tabla->string('name',50);
+			$tabla->string('lastname',70);
+			$tabla->string('username',50)->unique();
+			$tabla->string('pass');
 			$tabla->timestamps();
 		});
 	}
@@ -28,7 +29,7 @@ class CrearUsuarios extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('usuarios');
+		Schema::drop('users');
 	}
 
 }

@@ -10,15 +10,20 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-//Route::get('/', 'UserController@showLogin');
-Route::get('login','UserController@showLogin');
-Route::post('login','UserController@postLogin');
-Route::get('/', 'UserController@getIndex');
+Route::get('login','AuthController@showLogin');
+Route::get('register','AuthController@showRegister');
+Route::get('/', function()
+    {
+        //return View::make('login');
+        return Redirect::to('users');
+    });
+Route::post('login','AuthController@postLogin');
+Route::post('/users/store','UserController@store');
+Route::post('store','UserController@store');
+Route::post('/users/update/{id}','UserController@update');
+Route::get('/users/destroy/{id}','UserController@destroy');
 Route::group(array('before' => 'auth'), function()
 {
-	Route::post('/users/store','UserController@store');
-	Route::post('/users/update/{id}','UserController@update');
-	Route::get('/users/destroy/{id}','UserController@destroy');
 	Route::controller('users','UserController');
-	Route::get('logout','UserController@logOut');
+	Route::get('logout','AuthController@logOut');
 });
