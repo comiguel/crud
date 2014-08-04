@@ -10,8 +10,13 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-Route::post('/users/store','UserController@store');
-Route::post('/users/update/{id}','UserController@update');
-Route::get('/users/destroy/{id}','UserController@destroy');
-
-Route::controller('users','UserController');
+Route::get('/', 'UserController@showLogin');
+Route::post('/users/login','UserController@postLogin');
+//Route::group(array('before' => 'auth'), function()
+//{
+	Route::post('/users/store','UserController@store');
+	Route::post('/users/update/{id}','UserController@update');
+	Route::get('/users/destroy/{id}','UserController@destroy');
+	Route::controller('users','UserController');
+	Route::get('/users/logout/{id}','UserController@logOut');
+//});

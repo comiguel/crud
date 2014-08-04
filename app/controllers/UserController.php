@@ -38,6 +38,7 @@ class UserController extends \BaseController {
 		$user->name = Input::get('name');
 		$user->lastname = Input::get('lastname');
 		$user->cc = Input::get('cc');
+		$user->pass = Input::get('password');
 
 		if($user->save()){
 			Session::flash('message','Se ha guardado el usuario correctamente');
@@ -93,6 +94,7 @@ class UserController extends \BaseController {
 		$user->name = Input::get('name');
 		$user->lastname = Input::get('lastname');
 		$user->cc = Input::get('cc');
+		$user->pass = Input::get('password');
 
 		if($user->save()){
 			Session::flash('message','Se ha actualizado el usuario correctamente');
@@ -127,5 +129,25 @@ class UserController extends \BaseController {
 		return Redirect::to('users');
 	}
 
+	public function showLogin()
+    {
+        // Verificamos que el usuario no esté autenticado
+        if (Auth::check())
+        {
+            // Si está autenticado lo mandamos a la raíz donde estara el mensaje de bienvenida.
+            return Redirect::to('/');
+        }
+        // Mostramos la vista login.blade.php (Recordemos que .blade.php se omite.)
+        return View::make('login');
+    }
 
+	public function postLogin()
+	{
+
+	}
+
+	public function logOut()
+	{
+		
+	}
 }

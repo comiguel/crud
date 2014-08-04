@@ -48,6 +48,11 @@
 				<p>
 					<input type="text" name="cc" placeholder="Cédula" class="form-control" required>
 				</p>
+			    <!-- Password-->
+			    <div class="controls">
+			      <input type="password" name="password" placeholder="Password" class="form-control" required>
+			      <p class="help-block">Password should be at least 4 characters</p>
+			    </div>
 				<p>
 					<input type="submit" value="Guardar" class="btn btn-success">
 				</p>
