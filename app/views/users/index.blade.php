@@ -27,6 +27,7 @@
       			<ul class="nav navbar-nav">
         			<li class="active"><a href="/users">Todos</a></li>
         			<li><a href="/users/create">Nuevo</a></li>
+        			<li><a href="/logout">Cerrar Sesión</a></li>
         		</ul>
         	</div>
         </div>

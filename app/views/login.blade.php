@@ -25,19 +25,19 @@
   		</div>
 
   		<div class="panel-body">
-  			<form class="form-signin" role="form">
-	        <input type="email" class="form-control" placeholder="Número de cédula" required="" autofocus="">
-	        <input type="password" class="form-control" placeholder="Password" required="">
+  			<form method="post" action="/login" class="form-signin" role="form">
+	        <input type="text" class="form-control" name="cc" placeholder="Número de cédula" required="" autofocus="">
+	        <input type="password" class="form-control" name="pass" placeholder="Password" required="">
 	        <div class="checkbox">
 	          <label>
-	            <input type="checkbox" value="remember-me"> Remember me
+	            <input type="checkbox" name="remember-me" value="remember-me"> Remember me
 	          </label>
 	        </div>
 	        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
 	      </form>
 		</div>
 	</div>
-
+	
 	@if(Session::has('message'))
 		<div class="alert alert-{{ Session::get('class') }}">{{ Session::get('message')}}</div>
 	@endif

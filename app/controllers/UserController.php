@@ -131,7 +131,7 @@ class UserController extends \BaseController {
 
 	public function showLogin()
     {
-        // Verificamos que el usuario no esté autenticado
+        // Verificamos que el usuario esté autenticado
         if (Auth::check())
         {
             // Si está autenticado lo mandamos a la raíz donde estara el mensaje de bienvenida.
@@ -143,11 +143,28 @@ class UserController extends \BaseController {
 
 	public function postLogin()
 	{
-
-	}
+        // Guardamos en un arreglo los datos del usuario.
+        $user = array(
+            'cc' => Input::get('cc'),
+            'pass'=> Input::get('pass')
+        );
+        // Validamos los datos y además mandamos como un segundo parámetro la opción de recordar el usuario.
+        if(Auth::attempt($user))
+        {
+            // De ser datos válidos nos mandara a la bienvenida
+            return Redirect::to('/');
+        }
+        // En caso de que la autenticación haya fallado manda un mensaje al formulario de login y también regresamos los valores enviados con withInput().
+        Session::flash('message','Tus datos son incorrectos');
+		Session::flash('class','danger');
+        return Redirect::to('login');
+    }
 
 	public function logOut()
-	{
-		
-	}
+    {
+        Auth::logout();
+        Session::flash('message','Se ha cerrado sesión correctamente');
+		Session::flash('class','success');
+        return Redirect::to('login');
+    }
 }
