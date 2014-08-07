@@ -15,7 +15,7 @@ Route::get('register','AuthController@showRegister');
 Route::get('/', function()
     {
         //return View::make('login');
-        return Redirect::to('users');
+        return Redirect::to('/users');
     });
 Route::post('login','AuthController@postLogin');
 Route::post('/users/store','UserController@store');

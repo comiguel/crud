@@ -25,9 +25,9 @@
   			</div>
     		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       			<ul class="nav navbar-nav">
-        			<li><a href="/users">Todos</a></li>
-        			<li class="active"><a href="/users/create">Nuevo</a></li>
-        			<li><a href="/logout">Cerrar Sesión</a></li>
+        			<li><a href="{{url('users')}}">Todos</a></li>
+        			<li class="active"><a href="{{url('users/create')}}">Nuevo</a></li>
+        			<li><a href="{{url('logout')}}">Cerrar Sesión</a></li>
         		</ul>
         	</div>
         </div>
@@ -39,7 +39,7 @@
   		</div>
 
   		<div class="panel-body">
-  			<form method="post" action="store">
+  			<form method="post" action="{{url('users/store')}}">
 				<p>
 					<input type="text" name="name" placeholder="Nombre" class="form-control" required>
 				</p>

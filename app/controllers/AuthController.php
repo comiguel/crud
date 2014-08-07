@@ -28,7 +28,7 @@ class AuthController extends BaseController {
             }
             Session::flash('message','Tus datos son incorrectos');
     		Session::flash('class','danger');
-            return Redirect::to('/');
+            return Redirect::to('login');
         }
 
     	public function logOut()

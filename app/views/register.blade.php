@@ -25,7 +25,7 @@
   		</div>
 
   		<div class="panel-body">
-  			<form method="post" action="store">
+  			<form method="post" action="{{url('store')}}">
 				<p>
 					<input type="text" name="name" placeholder="Nombre" class="form-control" required>
 				</p>
@@ -42,7 +42,7 @@
 			    </div>
 				<p>
 					<input type="submit" value="Registrar" class="btn btn-success">
-					<a href="/" class="btn btn-default">Regresar</a>
+					<a href="{{url('login')}}" class="btn btn-default">Regresar</a>
 				</p>
 			</form>
 		</div>

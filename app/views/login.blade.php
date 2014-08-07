@@ -25,7 +25,7 @@
   		</div>
 
   		<div class="panel-body">
-  			<form method="post" action="login" class="form-signin" role="form">
+  			<form method="post" action="{{url('login')}}" class="form-signin" role="form">
 	        <input type="text" class="form-control" name="username" placeholder="Nombre de usuario" required>
 	        <input type="password" class="form-control" name="pass" placeholder="Contraseña" required>
 	        <div class="checkbox">
@@ -34,7 +34,7 @@
 	          </label>
 	        </div>
 	        <input type="submit" class="btn btn-lg btn-primary" value="Sign In">
-	        <a href="register" class="btn btn-lg btn-success">Sign Up</a>
+	        <a href="{{url('register')}}" class="btn btn-lg btn-success">Sign Up</a>
 	      </form>
 		</div>
 	</div>

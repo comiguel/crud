@@ -25,9 +25,9 @@
   			</div>
     		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       			<ul class="nav navbar-nav">
-        			<li><a href="/users">Todos</a></li>
-        			<li><a href="/users/create">Nuevo</a></li>
-              <li><a href="/logout">Cerrar Sesión</a></li>
+        			<li><a href="{{url('users')}}">Todos</a></li>
+              <li><a href="{{url('users/create')}}">Nuevo</a></li>
+              <li><a href="{{url('logout')}}">Cerrar Sesión</a></li>
         		</ul>
         	</div>
         </div>
@@ -54,7 +54,7 @@
           No existe información para éste usuario.
         </p>
         @endif
-        <a href="/users" class="btn btn-default">Regresar</a>
+        <a href="{{url('users')}}" class="btn btn-default">Regresar</a>
 		</div>
 	</div>
 </body>

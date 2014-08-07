@@ -25,9 +25,9 @@
   			</div>
     		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       			<ul class="nav navbar-nav">
-        			<li class="active"><a href="/users">Todos</a></li>
-        			<li><a href="/users/create">Nuevo</a></li>
-        			<li><a href="/logout">Cerrar Sesión</a></li>
+        			<li class="active"><a href="users">Todos</a></li>
+        			<li><a href="users/create">Nuevo</a></li>
+        			<li><a href="{{url('logout')}}">Cerrar Sesión</a></li>
         		</ul>
         	</div>
         </div>
@@ -57,8 +57,8 @@
 							<td>{{ $user->lastname }}</td>
 							<td>{{ $user->username }}</td>
 							<td>
-								<a href="/users/show/{{ $user->id }}"><span class="label label-info">Ver</span></a>
-								<a href="/users/edit/{{ $user->id }}"><span class="label label-success">Editar</span></a>
+								<a href="{{ url('/users/show',$user->id) }}"><span class="label label-info">Ver</span></a>
+								<a href="{{ url('/users/edit',$user->id) }}"><span class="label label-success">Editar</span></a>
 								<a href="{{ url('/users/destroy',$user->id) }}"><span class="label label-danger">Eliminar</span></a>
 							</td>
 						</tr>
